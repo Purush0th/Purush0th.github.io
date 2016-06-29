@@ -1,0 +1,49 @@
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background: #e2e1e0;
+}
+
+md-content{
+    background: url(http://cdn.backgroundhost.com/backgrounds/subtlepatterns/vichy.png) repeat;
+}
+
+.calc-container{
+    color:#fff;
+    background: #006064;
+     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.calc-container md-grid-tile {
+  transition: all 400ms ease-out 50ms; }
+
+.calc-display {
+    background: #263238;
+    min-height: 125px;
+}
+
+.calc-display h1,
+.calc-display h2 {
+    margin: 0;
+    padding:10px;
+    overflow: hidden;   
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.calc-display h1{
+font-size: 2.8em;    
+}
+.calc-display h2{
+    font-size: 2em;
+}
+.calc-key{
+  font-size: 1.4em;  
+}
+
+.calc-control-key{
+    background: #E65100 ;
+}

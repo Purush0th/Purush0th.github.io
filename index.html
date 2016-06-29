@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 
 <head>
 
@@ -12,13 +12,13 @@
     <title>Purushoth | Full stack developer</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/flatly/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/freelancer.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -31,7 +31,7 @@
 
 </head>
 
-<body id="page-top" class="index">
+<body id="page-top" class="index" ng-controller="AppController as vm">
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -60,6 +60,12 @@
                         <a href="#about">About</a>
                     </li>
                     <li class="page-scroll">
+                        <a href="#skills">Skills</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#work">Work</a>
+                    </li>
+                    <li class="page-scroll">
                         <a href="#contact">Contact</a>
                     </li>
                 </ul>
@@ -78,7 +84,7 @@
                     <div class="intro-text">
                         <span class="name">Purushothaman Anbazhagan</span>
                         <hr class="star-light">
-                        <span class="skills">Full Stack Web Developer - UI/UX Enthusiast - Hardware Engineer</span>
+                        <span class="skills">Full Stack Developer - UI/UX Enthusiast</span>
                     </div>
                 </div>
             </div>
@@ -95,64 +101,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                <div class="col-sm-4 portfolio-item" ng-repeat="item in vm.projects">
+                    <a ng-href="{{'#portfolioModal'+item.id}}" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
+                        <div class="browser">
+                            <div class="toolbar">
+                                <span class="button red"></span>
+                                <span class="button yellow"></span>
+                                <span class="button green"></span>
+                            </div>
+                            <div class="content">
+                                <img ng-src="{{item.snap}}" class="img-responsive img-centered" alt="">
                             </div>
                         </div>
-                        <img src="img/portfolio/cake.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/circus.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/game.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
+
                     </a>
                 </div>
             </div>
@@ -170,21 +136,211 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source
-                        files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                    <p>I'm a <span class="text-highlight">full stack web developer</span> and UI/UX enthusiast, specialized
+                        in .Net based tech stacks with <span class="text-highlight">3+ years</span> of professional experience.<br/>An
+                        avid programmer passionate about crafting lean and functional web application with maintainable code
+                        base. I convert client's requirements into a web application with a compelling user experience.
+                    </p>
                 </div>
                 <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or
-                        a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                    <p>I develop in JavaScript, HTML5, CSS (Sass) with frameworks like <span class="text-highlight">Angular</span>                        and
+                        <span class="text-highlight">Bootstrap</span>/Angular Material. I also scale web applications to
+                        mobile users with responsive web design.<br/><br/>I build scalable
+                        <a href="https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/" target="_blank">mobile ready</a>                        <span class="text-highlight">API servers</span> using ASP.Net <a href="http://www.asp.net/web-api"
+                            target="_blank">Web API</a> that can talk to a <span class="text-highlight">SQL/No SQL</span> database.</p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Resume
+                    <div>
+                        <p><i>I am also a certified front-end developer. Take a look at the certification <a href="https://www.freecodecamp.com/purush0th/front-end-certification" target="_blank">here</a>.</i></p>
+                    </div>
+
+                    <a href="/docs/[Resume]_Purushothaman_Anbazhagan_3.0.pdf" target="_blank" class="btn btn-lg btn-outline text-uppercase">
+                        <i class="fa fa-download"></i> Download CV
                     </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Skills</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-4">
+                    <div class="skill-container">
+
+                        <h4>Front-End</h4>
+                        <ul class="skills-list">
+                            <li>AngularJS</li>
+                            <li>JavaScript</li>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>jQuery</li>
+                            <li>Bootstrap</li>
+                            <li>Angular Material</li>
+                            <li>Less / Sass</li>
+                            <li>Node.js</li>
+                            <li>Gulp.js</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="divider visible-xs">
+                    <hr>
+                </div>
+
+                <div class="col-sm-offset-2 col-sm-4">
+                    <div class="skill-container">
+                        <h4>Back-End</h4>
+                        <ul class="skills-list">
+                            <li>C#</li>
+                            <li>ASP.Net MVC</li>
+                            <li>Web API</li>
+                            <li>Entity Framework</li>
+                            <li>Microsoft SQL Server</li>
+                            <li>ElasticSearch</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="divider">
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-4">
+                    <div class="skill-container">
+                        <h4>Methodologies</h4>
+                        <ul class="skills-list">
+                            <li>Agile Methodologies</li>
+                            <li>OOP</li>
+                            <li>Scrum</li>
+                            <li>Kanban</li>
+                            <li>Test Driven Development</li>
+                            <li>Behavior Driven Development</li>
+                            <li>SDLC</li>
+                            <li>MVC</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="divider visible-xs">
+                    <hr>
+                </div>
+
+                <div class="col-sm-offset-2 col-sm-4">
+                    <div class="skill-container">
+                        <h4>Tools</h4>
+                        <ul class="skills-list">
+                            <li>Visual Studio</li>
+                            <li>Visual Studio Code</li>
+                            <li>Git</li>
+                            <li>SVN</li>
+                            <li>SourceTree</li>
+                            <li>Sublime Text</li>
+                            <li>TeamCity</li>
+                            <li>IIS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="divider">
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="skills-display text-center">
+                        <img src="img/web/angular.svg" alt="AngularJs">
+                        <img src="img/web/javascript.png" alt="JavaScript">
+                        <img src="img/web/html.svg" alt="HTML5">
+                        <img src="img/web/css3.svg" alt="CSS3">
+                        <img src="img/web/jquery.svg" alt="jQuery">
+                        <img src="img/web/bootstrap.svg" alt="BootStrap">
+                        <img src="img/web/csharp.svg" alt="BootStrap">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Work experience Section -->
+    <section id="work" class="success">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Work Experience</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h3>Burning Glass Technologies</h3>
+                            <h4 class="text-primary">Software Engineer</h4>
+                            <h5>June 2013 - Present</h5>
+                        </div>
+                        <div class="col-sm-5">
+                            <a href="http://www.burning-glass.com" target="_blank" alt="burning glass logo">
+                                <img class="emp-logo bg-logo" src="img/logo/bg-logo.gif" alt="Burning Glass Technologies">
+                            </a>
+                        </div>
+                    </div>
+
+                    <ul>
+                        <li><span class="text-primary">Architecting</span> front end projects</li>
+                        <li><span class="text-primary">Developing</span> web application from the wireframes</li>
+                        <li><span class="text-primary">Crafting</span> responsive mobile friendly web application</li>
+                        <li><span class="text-primary">Building</span> API servers using ASP.NET Web API</li>
+                        <li><span class="text-primary">Maintaining</span> web products, adding new features and fixing bugs</li>
+                        <li><span class="text-primary">Deploying</span> an application on a release basis</li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="divider">
+                <hr>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h3>Zapnet Computers</h3>
+                            <h4 class="text-primary">Hardware Engineer</h4>
+                            <h5>May 2008 - Apr 2009</h5>
+                        </div>
+                        <div class="col-sm-5">
+                            <a href="http://www.zapindia.com/" target="_blank" alt="zapindia logo">
+                                <img class="emp-logo" width="120" src="img/logo/zapnet-logo.jpg" alt="Burning Glass Technologies">
+                            </a>
+                        </div>
+                    </div>
+
+                    <ul>
+                        <li>Assembling PC</li>
+                        <li>Replacing peripherals</li>
+                        <li>Installing Operating System</li>
+                        <li>Installing device drivers</li>
+                        <li>Troubleshooting hardware and software issues</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Contact Section -->
     <section id="contact">
@@ -246,33 +402,27 @@
         <div class="footer-above">
             <div class="container">
                 <div class="row">
-                    <div class="footer-col col-md-4">
+                    <div class="footer-col col-md-6">
                         <h3>Location</h3>
-                        <p>#2/67 Double Street, Sevalapurai<br>Gingee Taluk, Villupuram<br/>Tamil Nadu - 604202</p>
+                        <p>Villupuram<br/>Tamil Nadu - 604202<br/>India</p>
                     </div>
-                    <div class="footer-col col-md-4">
+                    <div class="footer-col col-md-6">
                         <h3>Around the Web</h3>
                         <ul class="list-inline">
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                <a href="https://github.com/Purush0th" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                                <a href="http://codepen.io/Purushoth/" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-codepen"></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                                <a href="https://twitter.com/_purushoth_" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                                <a href="https://www.linkedin.com/in/purushothanbu" target="_blank" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
                             </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-                            </li>
+
                         </ul>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
                     </div>
                 </div>
             </div>
@@ -296,270 +446,83 @@
     </div>
 
     <!-- Portfolio Modals -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
+    <div ng-repeat="item in vm.projects">
+        <div class="portfolio-modal modal fade" id="{{'portfolioModal'+item.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set
-                                by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download
-                                their free set with 16 icons, or you can purchase the entire set with 146 icons for only
-                                $12!
-                            </p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <h2>{{item.title}}</h2>
+                                <hr class="star-primary">
+
+                                <div class="browser">
+                                    <div class="toolbar">
+                                        <span class="button red"></span>
+                                        <span class="button yellow"></span>
+                                        <span class="button green"></span>
+                                    </div>
+                                    <div class="content">
+                                        <img ng-src="{{item.snap}}" class="img-responsive img-centered" alt="">
+                                    </div>
+                                </div>
+
+                                <p ng-bind-html="item.desc">
+                                </p>
+
+                                <div class="item-details">Technologies:
+                                    <span ng-repeat="tech in item.technologies" class="tech-item">{{tech}}</span>
+                                </div>
+
+                                <div>
+                                    <a class="btn btn-info action-links" ng-href="{{item.sourcecode}}" target="_blank">
+                                        <span> <i class="fa fa-github"></i> Source code</span>
+                                    </a>
+                                    <a class="btn btn-primary action-links" ng-href="{{item.url}}" target="_blank">
+                                        <span> <i class="fa fa-th-large"></i> View application</span>
+                                    </a>
+                                </div>
+                                <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set
-                                by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download
-                                their free set with 16 icons, or you can purchase the entire set with 146 icons for only
-                                $12!
-                            </p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set
-                                by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download
-                                their free set with 16 icons, or you can purchase the entire set with 146 icons for only
-                                $12!
-                            </p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set
-                                by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download
-                                their free set with 16 icons, or you can purchase the entire set with 146 icons for only
-                                $12!
-                            </p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set
-                                by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download
-                                their free set with 16 icons, or you can purchase the entire set with 146 icons for only
-                                $12!
-                            </p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set
-                                by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download
-                                their free set with 16 icons, or you can purchase the entire set with 146 icons for only
-                                $12!
-                            </p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <!-- angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-sanitize.js"></script>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="js/classie.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js"></script>
     <script src="js/cbpAnimatedHeader.js"></script>
 
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="js/portfolio.contact.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="js/freelancer.js"></script>
+    <script src="js/portfolio.js"></script>
+
+    <!--angular app-->
+    <script src="js/app.js"></script>
 
 </body>
 
